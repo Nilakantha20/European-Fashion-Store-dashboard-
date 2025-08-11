@@ -1028,62 +1028,6 @@
         },
         {
           "widget": {
-            "name": "d37c7413",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "d7dbbe0c",
-                  "fields": [
-                    {
-                      "name": "sum(item_total)",
-                      "expression": "SUM(`item_total`)"
-                    },
-                    {
-                      "name": "Cuscountry",
-                      "expression": "`Cuscountry`"
-                    }
-                  ],
-                  "disaggregated": false
-                }
-              }
-            ],
-            "spec": {
-              "version": 1,
-              "widgetType": "choropleth-map",
-              "encodings": {
-                "color": {
-                  "fieldName": "sum(item_total)",
-                  "scale": {
-                    "type": "quantitative"
-                  },
-                  "displayName": "Sum of item_total"
-                },
-                "region": {
-                  "regionType": "mapbox-v4-admin",
-                  "admin0": {
-                    "fieldName": "Cuscountry",
-                    "type": "field",
-                    "geographicRole": "admin0-name",
-                    "displayName": "Cuscountry"
-                  }
-                }
-              },
-              "frame": {
-                "showTitle": true,
-                "title": "Sales distribution by Country"
-              }
-            }
-          },
-          "position": {
-            "x": 0,
-            "y": 12,
-            "width": 6,
-            "height": 6
-          }
-        },
-        {
-          "widget": {
             "name": "bb934448",
             "queries": [
               {
