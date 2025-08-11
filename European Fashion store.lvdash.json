@@ -10,8 +10,8 @@
         "        s1.quantity,\r\n",
         "        s1.product_id,\r\n",
         "        EXTRACT(MONTH FROM s.sale_date) AS sale_month\r\n",
-        "    FROM my_catalog.my_schema.european_fashion_store_salesitem s1\r\n",
-        "    JOIN my_catalog.my_schema.european_fashion_store_sales s \r\n",
+        "    FROM my_catalog.my_schema.salesitem s1\r\n",
+        "    JOIN my_catalog.my_schema.sales s \r\n",
         "        ON s1.sale_id = s.sale_id\r\n",
         ")\r\n",
         "\r\n",
@@ -53,16 +53,16 @@
         "    ROUND(AVG(sales_with_month.quantity) \r\n",
         "        OVER (PARTITION BY s1.product_id, EXTRACT(MONTH FROM s.sale_date)), 0) AS target_quantity\r\n",
         "\r\n",
-        "FROM my_catalog.my_schema.european_fashion_store_channel c\r\n",
-        "JOIN my_catalog.my_schema.european_fashion_store_sales s \r\n",
+        "FROM my_catalog.my_schema.channel c\r\n",
+        "JOIN my_catalog.my_schema.sales s \r\n",
         "    ON c.channel = s.channel\r\n",
-        "JOIN my_catalog.my_schema.european_fashion_store_customer c1 \r\n",
+        "JOIN my_catalog.my_schema.customer c1 \r\n",
         "    ON s.customer_id = c1.customer_id\r\n",
-        "JOIN my_catalog.my_schema.european_fashion_store_salesitem s1 \r\n",
+        "JOIN my_catalog.my_schema.salesitem s1 \r\n",
         "    ON s.sale_id = s1.sale_id\r\n",
-        "JOIN my_catalog.my_schema.european_fashion_store_product p \r\n",
+        "JOIN my_catalog.my_schema.product p \r\n",
         "    ON s1.product_id = p.product_id\r\n",
-        "JOIN my_catalog.my_schema.european_fashion_store_stock st \r\n",
+        "JOIN my_catalog.my_schema.stock st \r\n",
         "    ON p.product_id = st.product_id\r\n",
         "JOIN sales_with_month\r\n",
         "    ON sales_with_month.product_id = s1.product_id \r\n",
@@ -76,48 +76,6 @@
       ],
       "catalog": "my_catalog",
       "schema": "my_schema"
-    },
-    {
-      "name": "f56471fb",
-      "displayName": "european_fashion_store_channel",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_channel"
-      ]
-    },
-    {
-      "name": "c141aabc",
-      "displayName": "european_fashion_store_customer",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_customer"
-      ]
-    },
-    {
-      "name": "3669232c",
-      "displayName": "european_fashion_store_product",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_product"
-      ]
-    },
-    {
-      "name": "86806469",
-      "displayName": "european_fashion_store_sales",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_sales"
-      ]
-    },
-    {
-      "name": "315befbc",
-      "displayName": "european_fashion_store_salesitem",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_salesitem"
-      ]
-    },
-    {
-      "name": "bcb0c64c",
-      "displayName": "european_fashion_store_stock",
-      "queryLines": [
-        "SELECT * FROM my_catalog.my_schema.european_fashion_store_stock"
-      ]
     },
     {
       "name": "13f98e0c",
@@ -170,6 +128,48 @@
         "    COUNT(*) AS count_customers\r\n",
         "FROM customer_sales_count\r\n",
         "GROUP BY customer_type;\r\n"
+      ]
+    },
+    {
+      "name": "9fd7717c",
+      "displayName": "salesitem",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.salesitem"
+      ]
+    },
+    {
+      "name": "f717123e",
+      "displayName": "sales",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.sales"
+      ]
+    },
+    {
+      "name": "86b0f0d6",
+      "displayName": "product",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.product"
+      ]
+    },
+    {
+      "name": "e35ef386",
+      "displayName": "customer",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.customer"
+      ]
+    },
+    {
+      "name": "6394905a",
+      "displayName": "channel",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.channel"
+      ]
+    },
+    {
+      "name": "a296a057",
+      "displayName": "stock",
+      "queryLines": [
+        "SELECT * FROM my_catalog.my_schema.stock"
       ]
     }
   ],
